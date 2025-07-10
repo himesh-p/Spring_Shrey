@@ -36,11 +36,11 @@ public class AeroplaneController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Aeroplane> updateAeroplane(@PathVariable Long id , @RequestBody Aeroplane aeroplane){
-        try{
-            return ResponseEntity.ok(service.update(id,aeroplane));
-        }catch (RuntimeException e){
-            return ResponseEntity.noContent().build();
+    public ResponseEntity<Aeroplane> update(@PathVariable Long id, @RequestBody Aeroplane updated) {
+        try {
+            return ResponseEntity.ok(service.update(id, updated));
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
         }
     }
 
